@@ -3,12 +3,13 @@ FROM node
 WORKDIR /app/
 EXPOSE 1337
 
-COPY ./package.json /app/
-RUN cd /app; npm install
-
-RUN npm build
-
+COPY ./Dance.elm /app/
 COPY ./server.js /app/
 COPY ./lib/* /app/lib/
+COPY ./package.json /app/
+RUN mkdir /app/public
+
+RUN npm install
+RUN npm build
 
 CMD ["node", "server.js"]
