@@ -10,6 +10,5 @@ RUN npm build
 
 COPY ./server.js /app/
 COPY ./lib/* /app/lib/
-COPY ./public/* /app/public/
 
 CMD ["node", "server.js"]
